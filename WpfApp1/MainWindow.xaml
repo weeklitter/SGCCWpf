@@ -3,49 +3,237 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:ext="clr-namespace:WpfApp1"
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1"		
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-	<Grid>
-		<!--<Grid.RowDefinitions>
-			<RowDefinition Height="150*" />
-			<RowDefinition Height="706*" />
-		</Grid.RowDefinitions>-->
-		<!--<Grid Grid.Row="0" Margin="0,0,0,378" Grid.RowSpan="2">
-			<Label Content="光伏最高负荷" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
-			<Label Content="光伏最高时间" HorizontalAlignment="Left" Margin="125,0,0,0" VerticalAlignment="Top"/>
-			<Label Content="全网最高负荷" HorizontalAlignment="Left" Margin="234,0,0,0" VerticalAlignment="Top"/>
-			<Label Content="全网最高时间" HorizontalAlignment="Left" Margin="329,0,0,0" VerticalAlignment="Top"/>
-			<Label Content="嘉兴最高负荷" HorizontalAlignment="Left" Margin="442,0,0,0" VerticalAlignment="Top"/>
-			<Label Content="嘉兴最高时间" HorizontalAlignment="Left" Margin="552,0,0,0" VerticalAlignment="Top"/>
-			<Label Content="光伏电量" HorizontalAlignment="Left" Margin="712,0,0,0" VerticalAlignment="Top"/>
-			<TextBox x:Name="guangfuZuigao" HorizontalAlignment="Left" Height="23" Margin="24,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
-			<TextBox x:Name="guangfuzuigaotime" HorizontalAlignment="Left" Height="23" Margin="137,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
-			<TextBox x:Name="quanwangzuigaofuhe" HorizontalAlignment="Left" Height="23" Margin="246,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
-			<TextBox x:Name="quanwangzuigaotime" HorizontalAlignment="Left" Height="23" Margin="341,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
-			<TextBox x:Name="jiaxingzuigaofuhe" HorizontalAlignment="Left" Height="23" Margin="454,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
-			<TextBox x:Name="jiaxingzuigaotime" HorizontalAlignment="Left" Height="23" Margin="564,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
-			<TextBox x:Name="guanfuInput" HorizontalAlignment="Left" Height="23" Margin="712,33,0,-15" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
+        Title="调控分中心-报表生成软件" Height="450" Width="700" >
+    <Grid >
+        <Grid.Resources>
+            <Style
+                TargetType="TextBlock">
+                <Setter
+                    Property="FontSize"
+                    Value="30"></Setter>
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"></Setter>
+            </Style>
+            <Style
+                TargetType="Border">
+                <Setter
+                    Property="BorderBrush"
+                    Value="Black"></Setter>
+                <Setter
+                    Property="BorderThickness"
+                    Value="1"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="200*" />
+            <RowDefinition Height="400*" />
+            <RowDefinition Height="40*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="DeepSkyBlue">
+            <Label  Content="每日电量数据（必填）" FontSize="12" FontFamily="./#仿宋_GB2312"
+			   HorizontalAlignment="Stretch"
+			   VerticalAlignment="Stretch">
+            </Label>
+        </Grid>
+        <Grid Grid.Row="1" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Label Content="全网最高负荷" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+                <Label Content="全网最高时间" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="当日全网电量" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox x:Name="quanwangzuigaofuhe" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"  Margin="0,5,0,0"/>
+                <TextBox x:Name="quanwangzuigaotime" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="70"/>
+                <TextBox x:Name="dangrizuiDianliang" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="70" Margin="0,0,0,5"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Label Content="网供最高负荷" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,5,0,0"/>
+                <Label Content="网供最高时间" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="当日网供电量" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+            </Grid>
+            <Grid Grid.Column="3">
+                <TextBox x:Name="wanggongzuigaofuhe" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"  Margin="0,5,0,0"/>
+                <TextBox x:Name="wanggongzuigaotime" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="70"/>
+                <TextBox x:Name="dangriwanggongDianliang" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="70" Margin="0,0,0,5"/>
+            </Grid>
+            <Grid Grid.Column="4">
+                <Label Content="光伏最高负荷" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,5,0,0"/>
+                <Label Content="光伏最高时间" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="当日光伏电量" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+            </Grid>
+            <Grid Grid.Column="5">
+                <TextBox x:Name="guangfuzuigaofuhe" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"  Margin="0,5,0,0"/>
+                <TextBox x:Name="guangfuzuigaotime" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="70"/>
+                <TextBox x:Name="dangriguangfuDianliang" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="70"  Margin="0,0,0,5"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3"  Background="DeepSkyBlue">
+            <Label Content="嘉善县供电有限公司调控分中心" FontSize="12" FontFamily="./#仿宋_GB2312" Foreground="White"
+			   HorizontalAlignment="Right"
+			   VerticalAlignment="Stretch">
+            </Label>
+        </Grid>       
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*" />
+                <ColumnDefinition Width="400*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" >
+                <StackPanel>
+                    <Button Name="Btn_Page1" Width="100" Height="40" Content="每日电量报表" FontSize="15" Margin="5,10,0,0" Click="Btn_Page1_Click"/>
+                    <Button Name="Btn_Page2" Width="100" Height="40"  Content="安全生产例会" FontSize="15" Margin="5,10,0,0" Click="Btn_Page2_Click"/>
+                    <Button Name="Btn_Page3" Width="100" Height="40" Content="月度电量统计" FontSize="15" Margin="5,10,0,0" Click="Btn_Page3_Click"/>
+                    <Button Name="Btn_Page4" Width="100" Height="40"  Content="更多功能" FontSize="15" Margin="5,10,0,0" Click="Btn_Page4_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" x:Name="changePage">
+                <Label Content="欢迎使用" FontSize="20" FontFamily="./#仿宋_GB2312"  HorizontalAlignment="Center"  VerticalAlignment="Center"></Label>
+            </Grid>
+            <Grid Grid.Column="1" x:Name="morePage" Visibility="Hidden">
+                <Label Content="敬请期待" FontSize="20" FontFamily="./#仿宋_GB2312"  HorizontalAlignment="Center"  VerticalAlignment="Center"></Label>
+            </Grid>
+            <Grid Grid.Column="1"  Visibility="Hidden" x:Name="dailyPage">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="300*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="每日电量报表" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" ></Label>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="E5000报表：" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="0,10,0,0"/>
+                        <Label Content="E3000报表：" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="15"/>
+                        <Label Content="生成报表：" HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontSize="15"  Margin="0,0,0,10"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Name="inputGrid">
+                        <TextBox x:Name="e5000Path" Width="{Binding Path=ActualWidth,ElementName=inputGrid}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                        <TextBox x:Name="e3000Path" Width="{Binding Path=ActualWidth,ElementName=inputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        <TextBox x:Name="savePath"  Width="{Binding Path=ActualWidth,ElementName=inputGrid}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Button Content="导入文件" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" FontSize="15" Margin="0,10,0,0" Click="e5000_Click"/>
+                        <Button Content="导入文件" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15" Click="e3000_Click"/>
+                        <Button Content="另存为" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" FontSize="15"  Margin="0,0,0,10" Click="save_Click"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1"  Visibility="Hidden" x:Name="safeMeetPage">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="300*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="安全生产日例会" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" ></Label>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="重要生产情况：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                        <Label Grid.Row="1" Content="电网运行情况：" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="15"/>
+                        <Label Grid.Row="2" Content="计算工作：" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="15" />
+                        <Label Grid.Row="3" Content="电网安全风险：" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="15"/>
+                        <Label Grid.Row="4" Content="生成日例会：" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="15" />
+                    </Grid>
+                    <Grid Grid.Column="1" Name="lihuiinputGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox  Grid.Row="0" x:Name="importProduce" Width="{Binding Path=ActualWidth,ElementName=lihuiinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBox  Grid.Row="1" x:Name="yunxingScreen" Width="{Binding Path=ActualWidth,ElementName=lihuiinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        <TextBox  Grid.Row="2" x:Name="planWork"  Width="{Binding Path=ActualWidth,ElementName=lihuiinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBox  Grid.Row="3" x:Name="eleDanger" Width="{Binding Path=ActualWidth,ElementName=lihuiinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        <TextBox  Grid.Row="4" x:Name="lihuiSave"  Width="{Binding Path=ActualWidth,ElementName=lihuiinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Content="提交文本" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15" />
+                        <Button Grid.Row="1" Content="提交文本" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15"/>
+                        <Button Grid.Row="2" Content="导入文件" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15"  Click="jisuanWork_Click"/>
+                        <Button Grid.Row="3" Content="导入文件" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15" Click="anquan_Click"/>
+                        <Button Grid.Row="4" Content="另存为" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15" Click="lihuiSave_Click"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1"  Visibility="Hidden" x:Name="monthCount">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="300*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="月度电量统计分析" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" ></Label>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="当月日电量：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                        <Label Grid.Row="1" Content="月度统计：" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="15"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Name="mothinputGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" x:Name="monthPath" Width="{Binding Path=ActualWidth,ElementName=mothinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="1" x:Name="saveCountPath" Width="{Binding Path=ActualWidth,ElementName=mothinputGrid}" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Content="导入文件" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15" Click="monthPath_Click"/>
+                        <Button Grid.Row="1" Content="另存为" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" FontSize="15" Click="saveCount_Click"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Border Grid.Column="1"></Border>
+        </Grid>
 
-		</Grid>-->
-		<Grid Grid.Row="1">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="100*" />
-				<ColumnDefinition Width="389*" />
-			</Grid.ColumnDefinitions>
-			<Grid Grid.Column="0">
-				<StackPanel>
-					<Button Name="Btn_Page1" Content="每日电量报表" Margin="5,10,0,0" Click="Btn_Page1_Click"/>
-					<Button Name="Btn_Page2" Content="安全生产例会" Margin="5,10,0,0" Click="Btn_Page2_Click"/>					
-				</StackPanel>
-				
-			</Grid>
-			<Grid Grid.Column="1">
-				<ContentControl x:Name="PowerPage">
-				</ContentControl>
-			</Grid>
-			
-		</Grid>
-	</Grid>
+        <Border Grid.Row="0"></Border>
+        <Border Grid.Row="1"></Border>
+        <Border Grid.Row="2"></Border>
+    </Grid>
 </Window>
