@@ -81,3 +81,6 @@ E:\Code\SGCCWpf\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
 E:\Code\SGCCWpf\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
 E:\Code\SGCCWpf\WpfApp1\obj\Debug\WpfApp1.exe
 E:\Code\SGCCWpf\WpfApp1\obj\Debug\WpfApp1.pdb
+E:\Code\SGCCWpf\WpfApp1\bin\Debug\DianLiang\2019-11-6.xls
+E:\Code\SGCCWpf\WpfApp1\bin\Debug\DianliangCount\2019-11-6.xls
+E:\Code\SGCCWpf\WpfApp1\bin\Debug\SafeMeeting\2019-11-6.xls
