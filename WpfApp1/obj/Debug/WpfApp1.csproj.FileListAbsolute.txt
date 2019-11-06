@@ -38,14 +38,12 @@ D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\bin\Debug\MaterialDesignColors.pdb
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
-D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\ElectricityDailyPage.g.cs
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\MainWindow.g.cs
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\SafeMeetingPage.g.cs
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\App.g.cs
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\App.baml
-D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\ElectricityDailyPage.baml
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\MainWindow.baml
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\SafeMeetingPage.baml
 D:\Code_ZFQ\SSCGNewUI\SGCCWpf\WpfApp1\obj\Debug\WpfApp1.g.resources
